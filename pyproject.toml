@@ -60,7 +60,7 @@ license = [
     'third-party-license-file-generator==2023.2.22',
 ]
 
-dev = ['micat[lint, format, test, license]']
+dev = ['github_crawler[lint, format, test, license]']
 
 [tool.hatch.build.targets.wheel]
 packages = ['src']
