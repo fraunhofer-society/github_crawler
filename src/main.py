@@ -40,7 +40,7 @@ def main(arguments):
     _save_html_file(
         './public/index.html',
         institutes,
-        is_including_numbers=False,
+        is_including_numbers=True,
     )
 
 
@@ -141,7 +141,7 @@ def _html_row(institute, is_including_numbers):
     link = institute['link']
     html_row += '<td>' + link + '</td>'
     institute_id = institute['id']
-    html_row += '<td>' + institute_id + '</td>'
+    html_row += '<td>' + institute_id.upper() + '</td>'
     location = institute['location']
     html_row += '<td>' + location + '</td>'
     account = institute['github_account']
