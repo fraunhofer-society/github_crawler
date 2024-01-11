@@ -27,7 +27,8 @@ requires-python = '>=3.11.0'
 license = { text = 'GNU Affero General Public License v3 or later (AGPLv3+)' }
 
 dependencies = [
-    'github==1.2.7',
+    'github @ git+https://github.com/VarMonke/Github-Api-Wrapper', # 'github==1.2.7' has a bug related to aiohttp
+    'aiohttp==3.9.1',
     'beautifulsoup4==4.12.2',
     'requests==2.31.0',
 ]
@@ -60,14 +61,18 @@ license = [
 
 dev = ['micat[lint, format, test, license]']
 
+[tool.hatch.build.targets.wheel]
+packages = ['src']
+
+[tool.hatch.metadata]
+allow-direct-references = true
 
 [tool.licensecheck]
 using = 'PEP631'
 zero = true  # results in non-zero exit code if incompatibilities are found
 ignore_licenses = ['ZOPE PUBLIC LICENSE', 'REPOZE PUBLIC LICENSE', 'Apache Software License']
 
-[tool.hatch.build.targets.wheel]
-packages = ['src']
+
 
 [tool.black]
 line-length = 120
