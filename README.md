@@ -13,5 +13,7 @@ python src/main.py {github_user} {github_access_token}
 where the {} variables need to replaced with actual values.
 
 This project is free and open source:
-it is licensed under the GNU Affero General Public License v3 or later (AGPLv3+) - see LICENSE.md.
-It uses third-party open source modules, see pyproject.toml and THIRDPARTY.md.
+
+* It is licensed under the GNU Affero General Public License v3 or later (AGPLv3+) - see LICENSE.md.
+*  It uses third-party open source modules, see pyproject.toml and THIRDPARTY.md.
+

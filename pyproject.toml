@@ -66,6 +66,8 @@ using = 'PEP631'
 zero = true  # results in non-zero exit code if incompatibilities are found
 ignore_licenses = ['ZOPE PUBLIC LICENSE', 'REPOZE PUBLIC LICENSE', 'Apache Software License']
 
+[tool.hatch.build.targets.wheel]
+packages = ['src']
 
 [tool.black]
 line-length = 120
