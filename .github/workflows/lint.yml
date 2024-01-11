@@ -1,0 +1,51 @@
+# © 2023 - 2024 Fraunhofer-Gesellschaft e.V., München
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+name: lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11
+      - name: install dependencies
+        run: |
+          # python -m pip install --upgrade pip
+          # also see settings in pyproject.toml
+          pip install .[dev]  | grep -v 'already satisfied' # The grep part removes "already satisfied" messages from the pip3 install output on linux systems
+      - name: format
+        run: |
+          python -m isort .
+          python -m black src
+          python -m black test
+          python -m black import
+      - name: lint
+        run: |
+          mkdir ./pylint
+          python -m pylint src --output-format=text . | tee ./pylint/pylint.log || pylint-exit $?
+          python -m pylint test --recursive=true
+          PYLINT_SCORE=$(sed -n 's/^Your code has been rated at \([-0-9.]*\)\/.*/\1/p' ./pylint/pylint.log)
+          echo "PYLINT_SCORE=$PYLINT_SCORE" >> $GITHUB_ENV
+          echo "Pylint score is $PYLINT_SCORE"
+      - name: badge
+        uses: schneegans/dynamic-badges-action@v1.6.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: ${{ secrets.GIST_ID }}
+          filename: github_crawler_lint.json
+          label: github_crawler_lint
+          message: ${{ env.PYLINT_SCORE }}
+          valColorRange: ${{ env.PYLINT_SCORE }}
+          maxColorRange: 10
+          minColorRange: 0
