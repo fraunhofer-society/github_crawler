@@ -20,8 +20,8 @@ where the {} variables need to replaced with actual values.
 
 This project is free and open source:
 
-* It is licensed under the GNU Affero General Public License v3 or later (AGPLv3+) - see LICENSE.md.
-* It uses third-party open source modules, see pyproject.toml and THIRDPARTY.md.
+* It is licensed under the GNU Affero General Public License v3 or later (AGPLv3+) - see [LICENSE.md](./LICENSE.md).
+* It uses third-party open source modules, see [pyproject.toml](./pyproject.toml) and [THIRDPARTY.md](./THIRDPARTY.md).
 
 ## Badges
 
