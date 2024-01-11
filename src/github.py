@@ -60,18 +60,27 @@ def repositories(url, github_session):
     api_url = url.replace('github.com', 'api.github.com/orgs') + '/repos?per_page=1000'
     json_data = github_session.get(api_url).json()
     if 'message' in json_data:
+
+        api_error_message = 'API rate limit exceeded'
+        credentials_error_message = 'Bad credentials'
+
         message = json_data['message']
-        error_message = 'API rate limit exceeded'
-        if error_message in message:
-            raise SystemError(error_message)
+        if api_error_message in message:
+            raise SystemError(api_error_message)
+
+        if credentials_error_message in message:
+            raise SystemError(credentials_error_message)
 
         api_url = url.replace('github.com', 'api.github.com/users') + '/repos?per_page=1000'
         json_data = github_session.get(api_url).json()
         if 'message' in json_data:
             message = json_data['message']
-            error_message = 'API rate limit exceeded'
-            if error_message in message:
-                raise SystemError(error_message)
+
+            if api_error_message in message:
+                raise SystemError(api_error_message)
+
+            if credentials_error_message in message:
+                raise SystemError(credentials_error_message)
 
             return []
 

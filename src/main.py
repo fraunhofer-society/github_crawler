@@ -4,12 +4,14 @@
 
 import datetime
 import json
+import shutil
 import sys
 from pathlib import Path
 
-import github
 import requests
 from bs4 import BeautifulSoup
+
+import github
 from reverser import Reverser
 from string_order import StringOrder
 
@@ -24,24 +26,35 @@ def main(arguments):
     github_user = arguments[1]
     github_access_token = arguments[2]
 
+    target_folder = './public'
+
     institutes_url = 'https://www.fraunhofer.de/en/institutes/institutes-and-research-establishments-in-germany.html'
 
     github_session = github.session(github_user, github_access_token)
 
     institutes = _crawl_institute_data(institutes_url, github_session)
 
-    json_file_path = './public/institutes.json'
+    json_file_path = target_folder + '/institutes.json'
     _save_json_file(json_file_path, institutes)
 
     institutes = _read_jon_file(json_file_path)
 
     institutes = _sort_institutes(institutes)
 
+    _copy_stylesheet(target_folder)
+
     _save_html_file(
-        './public/index.html',
+        target_folder + '/index.html',
         institutes,
         is_including_numbers=True,
     )
+
+
+def _copy_stylesheet(target_folder):
+    file_name = 'stylesheet.css'
+    source_file_path = './src/' + file_name
+    target_file_path = target_folder + '/' + file_name
+    shutil.copyfile(source_file_path, target_file_path)
 
 
 def _crawl_institute_data(institutes_url, github_session):
@@ -62,10 +75,14 @@ def _save_html_file(file_path, institutes, is_including_numbers=True):
     date = _date()
     full_html = (
         '<html>\n'
-        + '<p>Overview Fraunhofer GitHub pages as of '
+        + '<head>\n'
+        + '  <link rel="stylesheet" href="stylesheet.css">\n'
+        + '<head>\n'
+        + '<body>\n'
+        + '  <p>Overview Fraunhofer GitHub pages as of '
         + date
-        + '</p>\n'
-        + '<table>\n'
+        + '  </p>\n'
+        + '  <table>\n'
         + _html_header_row(is_including_numbers)
     )
 
@@ -74,7 +91,8 @@ def _save_html_file(file_path, institutes, is_including_numbers=True):
         full_html += html_row
 
     full_html += '''</table>
-      <p><a href="https://www.fraunhofer.de/en/publishing-notes.html">PUBLISHING NOTES</a></p>
+        <p><a href="https://www.fraunhofer.de/en/publishing-notes.html">PUBLISHING NOTES</a></p>
+      </body>
     </html>
     '''
 

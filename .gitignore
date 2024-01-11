@@ -9,3 +9,4 @@ public
 .idea
 report.xml
 .coverage
+/run.bat
