@@ -1,6 +1,5 @@
 <!--
-© 2023 - 2024 Fraunhofer-Gesellschaft e.V., München
-© 2024 Fraunhofer-Gesellschaft e.V., M├╝nchen
+© 2024 Fraunhofer-Gesellschaft e.V., München
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
@@ -28,7 +27,6 @@ This project is free and open source:
 
 Click on some badge to navigate to the corresponding **quality assurance** workflow:
 
-
 ### Formatting & linting
 
 [![lint](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/fhg-isi/2bb9509d2a0c1605acdc671fd313de59/raw/github_crawler_lint.json)](https://github.com/fraunhofer-society/github_crawler/actions/workflows/lint.yml) Checks code formatting with [Pylint](https://pylint.readthedocs.io/)
@@ -36,7 +34,6 @@ Click on some badge to navigate to the corresponding **quality assurance** workf
 ### Test coverage
 
 [![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/fhg-isi/2bb9509d2a0c1605acdc671fd313de59/raw/coverage.json)](https://github.com/fraunhofer-isi/micat/actions/workflows/coverage.yml) Determines test coverage with [pytest-cov](https://github.com/pytest-dev/pytest-cov)
-
 
 ### License compliance
 

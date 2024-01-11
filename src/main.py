@@ -1,5 +1,4 @@
-# © 2023 - 2024 Fraunhofer-Gesellschaft e.V., München
-# © 2024 Fraunhofer-Gesellschaft e.V., M├╝nchen
+# © 2024 Fraunhofer-Gesellschaft e.V., München
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -8,10 +7,9 @@ import json
 import sys
 from pathlib import Path
 
+import github
 import requests
 from bs4 import BeautifulSoup
-
-import github
 from reverser import Reverser
 from string_order import StringOrder
 
