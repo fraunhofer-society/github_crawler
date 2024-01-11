@@ -23,17 +23,17 @@ jobs:
         run: |
           # python -m pip install --upgrade pip
           # also see settings in pyproject.toml
-          pip install .[dev]  | grep -v 'already satisfied' # The grep part removes "already satisfied" messages from the pip3 install output on linux systems
+          pip3 install .[dev]  | grep -v 'already satisfied' # The grep part removes "already satisfied" messages from the pip3 install output on linux systems
       - name: format
         run: |
-          python -m isort .
-          python -m black src
-          python -m black test
+          python3 -m isort .
+          python3 -m black src
+          python3 -m black test
       - name: lint
         run: |
           mkdir ./pylint
-          python -m pylint src --output-format=text . | tee ./pylint/pylint.log || pylint-exit $?
-          python -m pylint test --recursive=true
+          python3 -m pylint src --output-format=text . | tee ./pylint/pylint.log || pylint-exit $?
+          python3 -m pylint test --recursive=true
           PYLINT_SCORE=$(sed -n 's/^Your code has been rated at \([-0-9.]*\)\/.*/\1/p' ./pylint/pylint.log)
           echo "PYLINT_SCORE=$PYLINT_SCORE" >> $GITHUB_ENV
           echo "Pylint score is $PYLINT_SCORE"
