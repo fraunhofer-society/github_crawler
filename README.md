@@ -44,6 +44,8 @@ Click on some badge to navigate to the corresponding **quality assurance** workf
 
 [![reuse compliance](https://api.reuse.software/badge/github.com/fraunhofer-society/github_crawler)](https://api.reuse.software/badge/github.com/fraunhofer-society/github_crawler) Checks for REUSE compliance with [reuse](https://git.fsfe.org/reuse/tool)
 
+[![third_party](https://github.com/fraunhofer-society/github_crawler/actions/workflows/generate_third_party_license_file.yml/badge.svg)](https://github.com/fraunhofer-society/github_crawler/actions/workflows/generate_third_party_license_file.yml) Generates [THIRDPARTY.md](./THIRDPARTY.md) with [python-third-party-license-file-generator](https://github.com/ftpsolutions/python-third-party-license-file-generator)
+
 ### Dependency updates & security checks
 
 [![renovate](https://github.com/fraunhofer-society/github_crawler/actions/workflows/renovate.yml/badge.svg)](https://github.com/fraunhofer-society/github_crawler/actions/workflows/renovate.yml) Updates dependencies with [renovate](https://github.com/renovatebot/renovate)
