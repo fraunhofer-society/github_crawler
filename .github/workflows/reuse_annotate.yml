@@ -29,4 +29,4 @@ jobs:
         # also see https://github.com/stefanzweifel/git-auto-commit-action
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: create copyright and license annotations with reuse tool \#2
+          commit_message: create copyright and license annotations with reuse tool \#1
