@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-name: third_party_license_file_generation
+name: generate_third_party_license_file
 
 on:
   push:
@@ -38,4 +38,4 @@ jobs:
         # also see https://github.com/stefanzweifel/git-auto-commit-action
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: updated third party license file \#1
+          commit_message: "updated third party license file #1"

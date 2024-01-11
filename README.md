@@ -33,7 +33,8 @@ Click on some badge to navigate to the corresponding **quality assurance** workf
 
 ### Test coverage
 
-[![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/fhg-isi/2bb9509d2a0c1605acdc671fd313de59/raw/coverage.json)](https://github.com/fraunhofer-isi/micat/actions/workflows/coverage.yml) Determines test coverage with [pytest-cov](https://github.com/pytest-dev/pytest-cov)
+[![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/fhg-isi/2bb9509d2a0c1605acdc671fd313de59/raw/github_crawler_coverage.json)](https://github.com/fraunhofer-isi/micat/actions/workflows/coverage.yml)
+
 
 ### License compliance
 

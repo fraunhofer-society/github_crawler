@@ -24,8 +24,11 @@ REM python check/check_licenses.py
 echo "Creating reuse annotations"
 python -m reuse annotate --copyright="Fraunhofer-Gesellschaft e.V., München" --copyright-style=symbol --merge-copyrights --license=AGPL-3.0-or-later --skip-unrecognised --recursive .
 
-REM echo "Running unit tests and determining test coverage..."
-REM pytest --cov
+echo "Running unit tests and determining test coverage..."
+pytest --cov
+
+echo "Checking REUSE compliance"
+python -m reuse lint
 
 if (%1==skip_pause) (
  echo "Finished commands."

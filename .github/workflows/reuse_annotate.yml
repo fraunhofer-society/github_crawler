@@ -5,10 +5,12 @@
 name: reuse_annotate
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # This should run *after* creation of files has been done by
+  # other workflow actions.
+  # Otherwise, new files might miss the annotation.
+  workflow_run:
+    workflows: [ "generate_third_party_license_file" ]
+    types: [ completed ]
 
 jobs:
   build:
@@ -29,4 +31,4 @@ jobs:
         # also see https://github.com/stefanzweifel/git-auto-commit-action
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: create copyright and license annotations with reuse tool \#1
+          commit_message: "create copyright and license annotations with reuse tool #1"
