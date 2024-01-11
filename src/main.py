@@ -39,7 +39,7 @@ def main(arguments):
     institutes = _sort_institutes(institutes)
 
     _save_html_file(
-        './public/institutes.html',
+        './public/index.html',
         institutes,
         is_including_numbers=False,
     )

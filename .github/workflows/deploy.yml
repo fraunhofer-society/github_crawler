@@ -31,12 +31,12 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: 3.11
-      - name: install dependencies
+      - name: install python dependencies
         run: |
-          pip install .[license]
+          pip install .[license]  | grep -v 'already satisfied' # The grep part removes "already satisfied" messages from the pip3 install output on linux systems
       - name: build
         run: |
-          python src/main.py fhg-isi ${{ secrets.TOKEN }}   
+          python src/main.py fhg-isi ${{ secrets.TOKEN }}
       - name: setup github pages
         uses: actions/configure-pages@v3
       - name: pages artifact
