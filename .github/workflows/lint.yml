@@ -29,7 +29,6 @@ jobs:
           python -m isort .
           python -m black src
           python -m black test
-          python -m black import
       - name: lint
         run: |
           mkdir ./pylint
