@@ -4,9 +4,11 @@
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
-Uses GitHub API to crawl data about GitHub pages of Fraunhofer institutes.
+Uses GitHub API to crawl data about GitHub pages of Fraunhofer institutes:
 
-Run following command to generate public/institutes.html:
+https://fraunhofer-society.github.io/github_crawler/
+
+In order to generate *public/index.html* locally, run following command:
 
 python src/main.py {github_user} {github_access_token}
 
