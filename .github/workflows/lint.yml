@@ -41,6 +41,8 @@ jobs:
       - name: badge
         uses: schneegans/dynamic-badges-action@v1.6.0
         with:
+          # this needs ome secrets defined in the GitHub settings, also see
+          # https://github.com/Schneegans/dynamic-badges-action?tab=readme-ov-file#%EF%B8%8F-configuration
           auth: ${{ secrets.GIST_SECRET }}
           gistID: ${{ secrets.GIST_ID }}
           filename: github_crawler_lint.json
