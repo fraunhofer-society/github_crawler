@@ -2,9 +2,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# This workflow uses the reuse tool to confirm reuse compliance
-# For more information see: https://reuse.software/
-
 name: reuse_compliance
 
 on:
