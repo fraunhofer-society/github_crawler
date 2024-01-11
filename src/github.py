@@ -1,4 +1,5 @@
 # © 2023 - 2024 Fraunhofer-Gesellschaft e.V., München
+# © 2024 Fraunhofer-Gesellschaft e.V., M├╝nchen
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -16,8 +17,8 @@ def activity(url, github_session):
         message = json_data['message']
         if error_message in message:
             raise SystemError(error_message)
-        else:
-            return 0
+
+        return 0
     number_of_events = len(json_data)
     return number_of_events
 
@@ -64,16 +65,16 @@ def repositories(url, github_session):
         error_message = 'API rate limit exceeded'
         if error_message in message:
             raise SystemError(error_message)
-        else:
-            api_url = url.replace('github.com', 'api.github.com/users') + '/repos?per_page=1000'
-            json_data = github_session.get(api_url).json()
-            if 'message' in json_data:
-                message = json_data['message']
-                error_message = 'API rate limit exceeded'
-                if error_message in message:
-                    raise SystemError(error_message)
-                else:
-                    return []
+
+        api_url = url.replace('github.com', 'api.github.com/users') + '/repos?per_page=1000'
+        json_data = github_session.get(api_url).json()
+        if 'message' in json_data:
+            message = json_data['message']
+            error_message = 'API rate limit exceeded'
+            if error_message in message:
+                raise SystemError(error_message)
+
+            return []
 
     if len(json_data) == 1:
         first_entry = json_data[0]
@@ -90,5 +91,5 @@ def session(user, token):
 
 
 def _sort_dictionary_by_values(dictionary):
-    sorted_dictionary = {k: v for k, v in sorted(dictionary.items(), key=lambda item: Reverser(item[1]))}
+    sorted_dictionary = dict(sorted(dictionary.items(), key=lambda item: Reverser(item[1])))
     return sorted_dictionary

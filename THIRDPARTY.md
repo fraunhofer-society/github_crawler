@@ -1,5 +1,6 @@
 <!--
 © 2024 Fraunhofer-Gesellschaft e.V., München
+© 2024 Fraunhofer-Gesellschaft e.V., M├╝nchen
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->

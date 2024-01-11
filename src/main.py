@@ -1,4 +1,5 @@
 # © 2023 - 2024 Fraunhofer-Gesellschaft e.V., München
+# © 2024 Fraunhofer-Gesellschaft e.V., M├╝nchen
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -25,7 +26,7 @@ def main(arguments):
     github_user = arguments[1]
     github_access_token = arguments[2]
 
-    institutes_url = 'https://www.fraunhofer.de/' 'en/institutes/institutes-and-research-establishments-in-germany.html'
+    institutes_url = 'https://www.fraunhofer.de/en/institutes/institutes-and-research-establishments-in-germany.html'
 
     github_session = github.session(github_user, github_access_token)
 
