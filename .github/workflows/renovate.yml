@@ -24,5 +24,12 @@ jobs:
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@v39.0.1
         with:
+          # In order for this to work, create a github token under
+          # https://github.com/settings/tokens
+          # with the scope repo => public_repo
+          # and a corresponding secret "RENOVATE_TOKEN" for the ropo or organization, e.g
+          # https://github.com/organizations/fraunhofer-society/settings/secrets/actions
+          # Also see
+          # https://docs.renovatebot.com/modules/platform/github/
           token: ${{ secrets.RENOVATE_TOKEN }}
           configurationFile: renovate-config.js
