@@ -1,0 +1,44 @@
+# © 2024 Fraunhofer-Gesellschaft e.V., München
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+name: coverage
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11
+      - name: install dependencies
+        run: |
+          # python -m pip install --upgrade pip
+          # also see settings in pyproject.toml
+          pip install .[dev]  | grep -v 'already satisfied' # The grep part removes "already satisfied" messages from the pip3 install output on linux systems
+      - name: test
+        run: |
+          mkdir ./pytest
+          python -m pytest --cov | tee ./pytest/coverage.log
+          PYTEST_COVERAGE=$(awk '$1 == "Required" {print $NF+0}' ./pytest/coverage.log)
+          echo "PYTEST_COVERAGE=$PYTEST_COVERAGE" >> $GITHUB_ENV
+          echo "Pytest coverage is $PYTEST_COVERAGE"
+      - name: badge
+        uses: schneegans/dynamic-badges-action@v1.6.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: ${{ secrets.GIST_ID }}
+          filename: github_crawler_coverage.json
+          label: coverage
+          message: ${{ env.PYTEST_COVERAGE }}
+          valColorRange: ${{ env.PYTEST_COVERAGE }}
+          maxColorRange: 100
+          minColorRange: 0

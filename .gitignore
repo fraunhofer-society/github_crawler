@@ -8,3 +8,4 @@ pylint.log
 public
 .idea
 report.xml
+.coverage

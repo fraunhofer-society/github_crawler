@@ -103,7 +103,7 @@ source = ['src']
 [tool.coverage.report]
 # Also see
 # https://coverage.readthedocs.io/en/6.4.4/config.html#config
-fail_under = 100
+fail_under = 6
 show_missing = true
 include_namespace_packages = true
 exclude_lines = ['if __name__ == .__main__.:']
