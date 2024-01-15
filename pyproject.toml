@@ -64,6 +64,9 @@ dev = ['github_crawler[lint, format, test, license]']
 [tool.hatch.build.targets.wheel]
 packages = ['src']
 
+[tool.hatch.build.targets.wheel.sources]
+"src" = "github_crawler"
+
 [tool.hatch.metadata]
 allow-direct-references = true
 
