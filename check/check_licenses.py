@@ -11,7 +11,10 @@ from licensecheck.types import JOINS, License, PackageInfo
 
 def main():
     using = 'PEP631'
-    ignore_packages = ['reuse']  # work around for bug in licensecheck for multiple licenses
+    ignore_packages = [
+    'reuse', # work around for bug in licensecheck for multiple licenses
+    'github_crawler'
+    ]  
     fail_packages = []
     ignore_licenses = [
         # work around for bug in licensecheck for apache
