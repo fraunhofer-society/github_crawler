@@ -51,4 +51,4 @@ jobs:
           path: 'public'
       - name: deploy to github pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
