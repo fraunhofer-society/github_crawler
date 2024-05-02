@@ -9,8 +9,8 @@
 // https://docs.renovatebot.com/self-hosted-configuration/
 
 module.exports = {
-  "username": "renovate-release",
-  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
   "onboarding": false,
   "requireConfig": "optional",
   "platform": "github",
@@ -39,6 +39,6 @@ module.exports = {
       // https://github.com/FHPythonUtils/LicenseCheck/issues/48
       "matchPackageNames": ["licensecheck"],
       "allowedVersions": "<=2023.1.4"
-    },
+    }
   ]
 };
