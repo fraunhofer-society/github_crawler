@@ -4,11 +4,12 @@
 
 import datetime
 import json
-import requests
 import shutil
 import sys
-from bs4 import BeautifulSoup
 from pathlib import Path
+
+import requests
+from bs4 import BeautifulSoup
 
 import github
 from reverser import Reverser
@@ -280,10 +281,10 @@ def _main_url(urls, repositories):
 
 def _url_is_public(url):
     try:
-        response = requests.head(url)
-        return response.status_code == requests.codes.ok
+        response = requests.head(url, timeout=10000)
+        return response.status_code == requests.codes.ok  # pylint: disable=no-member
     except requests.exceptions.RequestException:
-        return Fals
+        return False
 
 
 def _parse_html(url):

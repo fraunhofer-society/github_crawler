@@ -14,5 +14,5 @@ class TestUrlIsPublic:
         assert result
 
     def test_not_public(self):
-        result = main._url_is_public('https://github.com/fraunhofer-enas')
+        result = main._url_is_public('https://github.com/fraunhofer-fep')
         assert not result
