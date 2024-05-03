@@ -4,12 +4,11 @@
 
 import datetime
 import json
+import requests
 import shutil
 import sys
-from pathlib import Path
-
-import requests
 from bs4 import BeautifulSoup
+from pathlib import Path
 
 import github
 from reverser import Reverser
@@ -265,6 +264,9 @@ def _main_url(urls, repositories):
     main_url = ''
     max_number_of_repositories = 0
     for url in urls:
+        if not _url_is_public(url):
+            continue
+
         if main_url == '':
             main_url = url
         repositories_for_url = repositories[url]
@@ -274,6 +276,14 @@ def _main_url(urls, repositories):
             main_url = url
 
     return main_url
+
+
+def _url_is_public(url):
+    try:
+        response = requests.head(url)
+        return response.status_code == requests.codes.ok
+    except requests.exceptions.RequestException:
+        return Fals
 
 
 def _parse_html(url):
