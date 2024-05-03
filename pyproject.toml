@@ -22,7 +22,7 @@ build-backend = "hatchling.build"
 [project]
 name = 'github_crawler'
 version = '0.0.1'
-requires-python = '>=3.11.0'
+requires-python = '>=3.11.2'
 license = { text = 'GNU Affero General Public License v3 or later (AGPLv3+)' }
 
 dependencies = [

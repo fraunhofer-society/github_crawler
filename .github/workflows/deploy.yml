@@ -33,10 +33,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: setup python
-        uses: actions/setup-python@v5
+      - name: extract python version
+        uses: ./.github/actions/extract-python-version
+      - uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: install python dependencies
         run: |
           pip install .[license]  | grep -v 'already satisfied' # The grep part removes "already satisfied" messages from the pip3 install output on linux systems

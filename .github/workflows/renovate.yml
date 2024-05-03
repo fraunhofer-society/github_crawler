@@ -33,4 +33,4 @@ jobs:
           # Also see
           # https://docs.renovatebot.com/modules/platform/github/
           token: ${{ secrets.RENOVATE_TOKEN }}
-          configurationFile: renovate-config.js
+          configurationFile: ./.github/renovate.json5
