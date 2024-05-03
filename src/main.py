@@ -265,8 +265,9 @@ def _main_url(urls, repositories):
     main_url = ''
     max_number_of_repositories = 0
     for url in urls:
+        print(url)
         if not _url_is_public(url):
-            message = 'Found non-public url: ' + url
+            message = '### Found non-public url'
             print(message)
             continue
 
@@ -284,6 +285,7 @@ def _main_url(urls, repositories):
 def _url_is_public(url):
     try:
         response = requests.head(url, timeout=10000)
+        print('status: ' + str(response.status_code))
         return response.status_code == requests.codes.ok  # pylint: disable=no-member
     except requests.exceptions.RequestException:
         return False
