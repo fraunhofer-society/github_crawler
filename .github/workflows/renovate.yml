@@ -34,3 +34,5 @@ jobs:
           # https://docs.renovatebot.com/modules/platform/github/
           token: ${{ secrets.RENOVATE_TOKEN }}
           configurationFile: ./.github/renovate.json5
+        env:
+          RENOVATE_AUTODISCOVER: true

@@ -14,7 +14,6 @@
     "config:recommended"
   ],
   "forkProcessing": "enabled",
-  "autodiscover": true,
   "packageRules": [
     {
       "description": "lockFileMaintenance",
