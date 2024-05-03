@@ -266,6 +266,8 @@ def _main_url(urls, repositories):
     max_number_of_repositories = 0
     for url in urls:
         if not _url_is_public(url):
+            message = 'Found non-public url: ' + url
+            print(message)
             continue
 
         if main_url == '':
