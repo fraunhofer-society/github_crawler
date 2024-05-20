@@ -29,7 +29,7 @@ dependencies = [
     'github @ git+https://github.com/VarMonke/Github-Api-Wrapper', # 'github==1.2.7' has a bug related to aiohttp
     'aiohttp==3.9.5',
     'beautifulsoup4==4.12.3',
-    'requests==2.31.0',
+    'requests==2.32.0',
 ]
 
 [project.optional-dependencies]
