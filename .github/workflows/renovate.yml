@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.2.1
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@v40.3.1
+        uses: renovatebot/github-action@v40.3.2
         with:
           # In order for this to work, create a github token under
           # https://github.com/settings/tokens
