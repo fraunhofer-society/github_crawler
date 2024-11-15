@@ -27,7 +27,7 @@ license = { text = 'GNU Affero General Public License v3 or later (AGPLv3+)' }
 
 dependencies = [
     'github @ git+https://github.com/VarMonke/Github-Api-Wrapper', # 'github==1.2.7' has a bug related to aiohttp
-    'aiohttp==3.11.0',
+    'aiohttp==3.11.2',
     'beautifulsoup4==4.12.3',
     'requests==2.32.3',
 ]
