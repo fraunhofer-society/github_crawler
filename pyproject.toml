@@ -40,7 +40,7 @@ lint = [
 ]
 
 format = [
-    'isort==5.13.2',
+    'isort==6.0.0',
     'black[d]==24.10.0',
 ]
 
