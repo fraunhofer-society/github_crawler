@@ -41,7 +41,7 @@ lint = [
 
 format = [
     'isort==9.0.2',
-    'black[d]==26.10.0',
+    'black[d]==26.10.1',
 ]
 
 test = [
